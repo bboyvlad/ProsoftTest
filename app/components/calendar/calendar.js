@@ -1,18 +1,19 @@
 'use strict';
 
 angular.module('proTest.calendar', ['ngResource'])
-.value('holidayAPI', '15cc2bfb-2e31-42bc-82f5-d3f103514f4a')
+.value('holidayAPI', '383a96df-47f1-491d-bd21-e29542dfd80a')
 
-.directive('appcalendar', [ '$log', 'countries', 'holidayAPI', '$http',  function($log, countries, holidayAPI, $http) {
+.directive('appcalendar', [ '$log', 'ApiOptions', 'holidayAPI', '$http',  function($log, ApiOptions, holidayAPI, $http) {
     return {
         restrict: "E",
         templateUrl: "components/calendar/templates/calendar.html",
         scope: true,
             link: function($scope) {
+                $scope.select_api = ApiOptions;
+                $scope.apiKey = holidayAPI;
                 $scope.select_country = {};
                 $http.get('components/calendar/countries.json').
                 success(function(data, status, headers, config) {
-                    $log.debug(data);
                     if(status == 200){
                         $scope.select_country = data;
                     }
@@ -102,7 +103,7 @@ angular.module('proTest.calendar', ['ngResource'])
     }
 
     function _getHolidays(apiKey ,country ,date ,month, $scope) {
-        $http.get('https://holidayapi.com/v1/holidays?key='+apiKey+'&country='+country+'&year='+date.year()+'&month='+date.format('MM')).
+        $http.get('https://holidayapi.com/v1/holidays?key='+$scope.apiKey+'&country='+country+'&year='+date.year()+'&month='+date.format('MM')).
         success(function(data, status, headers, config) {
             $log.debug(data);
             if(status == 200){
@@ -132,4 +133,9 @@ angular.module('proTest.calendar', ['ngResource'])
             }
         });
     }
-}]);
+}]).factory('ApiOptions', function ($resource) {
+    return [
+        { id: '15cc2bfb-2e31-42bc-82f5-d3f103514f4a', name: 'Live API'},
+        { id: '383a96df-47f1-491d-bd21-e29542dfd80a', name: 'Test API'},
+    ]
+});

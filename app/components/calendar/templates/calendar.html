@@ -1,8 +1,14 @@
 <div class="form">
+    Holidays API options:
+    <select name="holi_selection" ng-model="apiKey">
+        <!--<option ng-value="">None</option>-->
+        <option ng-value="api.id" ng-repeat="api in select_api" selected>{{api.name}}</option>
+
+    </select>
     selected: <input type="text" ng-model="date">
     days: <input type="text" ng-model="dayslimit">
     country:
-    <select name="country" id="" ng-model="country">
+    <select name="country" ng-model="country">
         <!--<option ng-value="">None</option>-->
         <option ng-value="c.id" ng-repeat="c in select_country">{{c.name}}</option>
 
