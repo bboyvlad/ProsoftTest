@@ -1,0 +1,24 @@
+<div class="form">
+    selected: <input type="text" ng-model="date">
+    days: <input type="text" ng-model="dayslimit">
+    country:<input type="text" ng-model="country">
+    <button ng-click="search()">Search</button>
+</div>
+
+<div class="calendar" ng-show="date" ng-repeat="mm in months[0]">
+    <div class="header">
+        <span>{{ mm.details }}</span>
+    </div>
+    <div class="week names">
+        <span class="day">Sun</span>
+        <span class="day">Mon</span>
+        <span class="day">Tue</span>
+        <span class="day">Wed</span>
+        <span class="day">Thu</span>
+        <span class="day">Fri</span>
+        <span class="day">Sat</span>
+    </div>
+    <div class="week" ng-repeat="week in mm.month">
+        <span  title="{{day.isHoliday.name}}" class="day" ng-class="{ 'beforeSelected':day.beforeSelected, isHoliday: day.isHoliday, 'different-month': !day.isCurrentMonth, 'isWeekend': day.isWeekend, 'Weekday': !day.isWeekend }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
+    </div>
+</div>
