@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="proTest" class="no-js">
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="proTest" class="no-js"> <!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Prosoft TEST</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
 
-	<div ng-view></div>
+  <div ng-view></div>
 
-	<script src="js/angular.js"></script>
-	<script src="js/angular-route.js"></script>
-	<script src="js/angular-resource.js"></script>
-	<script src="js/moment.js"></script>
-	<script src="app.js"></script>
-	<script src="view1/view1.js"></script>
-	<script src="components/calendar/calendar.js"></script>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="js/angular.js"></script>
+  <script src="js/angular-route.js"></script>
+  <script src="js/angular-resource.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="components/calendar/calendar.js"></script>
 </body>
 </html>

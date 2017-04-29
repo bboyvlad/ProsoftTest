@@ -1,0 +1,39 @@
+/* app css stylesheet */
+
+.calendar{
+    border:2px solid black;
+    max-width: 270px;
+    padding: 10px;
+    float: left;
+}
+.header{
+    border:2px solid #CCC;
+    max-height: 20px;
+    padding: 3px;
+    text-align: center;
+}
+div.week {
+    float: left;
+    width: 100%;
+    border-top: solid 1px #CCC;
+}
+span.day{
+    border:1px solid #CCC;
+    padding: 2px;
+    text-align: center;
+    float:left;
+    width:12%;
+}
+.beforeSelected, .different-month{
+    background: grey!important;
+    color: grey !important;
+}
+.isWeekend{
+    background: #f9ffb9;
+}
+.Weekday{
+    background: #b7ffa9;
+}
+.isHoliday{
+    background: #ffcda1;
+}

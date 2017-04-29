@@ -1,7 +1,12 @@
 <div class="form">
     selected: <input type="text" ng-model="date">
     days: <input type="text" ng-model="dayslimit">
-    country:<input type="text" ng-model="country">
+    country:
+    <select name="country" id="" ng-model="country">
+        <!--<option ng-value="">None</option>-->
+        <option ng-value="c.id" ng-repeat="c in select_country">{{c.name}}</option>
+
+    </select>
     <button ng-click="search()">Search</button>
 </div>
 
@@ -19,6 +24,6 @@
         <span class="day">Sat</span>
     </div>
     <div class="week" ng-repeat="week in mm.month">
-        <span  title="{{day.isHoliday.name}}" class="day" ng-class="{ 'beforeSelected':day.beforeSelected, isHoliday: day.isHoliday, 'different-month': !day.isCurrentMonth, 'isWeekend': day.isWeekend, 'Weekday': !day.isWeekend }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
+        <span  title="{{day.isHoliday.name}}" class="day" ng-class="{ 'beforeSelected':day.beforeSelected, isHoliday: day.isHoliday, 'different-month': !day.isCurrentMonth, 'isWeekend': day.isWeekend, 'Weekday': !day.isWeekend }" ng-repeat="day in week.days">{{day.number}}</span>
     </div>
 </div>
